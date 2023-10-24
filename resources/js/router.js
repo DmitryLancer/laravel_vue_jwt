@@ -12,6 +12,17 @@ const routes = [
         name: 'fruit.index',
         component: () => import('./components/Fruit/Index.vue')
     },
+    {
+        path: '/users/login',
+        name: 'user.login',
+        component: () => import('./components/User/Login.vue')
+    },
+    {
+        path: '/users/registration',
+        name: 'user.registration',
+        component: () => import('./components/User/Registration.vue')
+    },
+
 
 
 
