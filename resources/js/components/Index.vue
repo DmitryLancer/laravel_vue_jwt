@@ -1,6 +1,20 @@
 <template>
     <div>
-        <router-link :to="{ name: 'fruit.index' }">List</router-link>
+        <div>
+            <nav class="justify-content-sm-between">
+                    <nav>
+                        <router-link :to="{ name: 'fruit.index' }">List</router-link>
+                    </nav>
+                    <nav>
+                        <router-link :to="{ name: 'user.login' }">Login</router-link>
+                    </nav>
+                    <nav>
+                        <router-link :to="{ name: 'user.registration' }">Registration</router-link>
+                    </nav>
+                </nav>
+
+        </div>
+
         <router-view/>
 
     </div>
