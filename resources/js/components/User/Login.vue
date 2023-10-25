@@ -19,7 +19,7 @@ export default {
 
     methods: {
         login() {
-            axios.post('api/auth/login', {email: this.email, password: this.password})
+            axios.post('/api/auth/login', {email: this.email, password: this.password})
             .then( res => {
                 localStorage.setItem('access_token', res.data.access_token)
 
