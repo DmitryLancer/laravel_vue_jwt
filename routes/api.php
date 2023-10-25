@@ -30,11 +30,11 @@ Route::group([
     Route::post('refresh', [App\Http\Controllers\AuthController::class, 'refresh']);
     Route::post('me', [App\Http\Controllers\AuthController::class, 'me']);;
 
-    Route::group(['namespace' => 'App\Http\Controllers\Fruit', 'prefix' => 'fruits'], function() {
-        Route::get('/', 'IndexController');
-
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::group(['namespace' => 'App\Http\Controllers\Fruit', 'prefix' => 'fruits'], function() {
+            Route::get('/', 'IndexController');
+        });
     });
-
 });
 
 

@@ -34,7 +34,7 @@ export default {
 
     methods: {
         getFruits() {
-            axios.get('/api/fruits')
+            axios.get('/api/fruits', {})
             .then( res => {
                 this.fruits = res.data.data
             })
