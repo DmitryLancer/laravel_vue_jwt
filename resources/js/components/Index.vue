@@ -11,6 +11,9 @@
                     <nav>
                         <router-link :to="{ name: 'user.registration' }">Registration</router-link>
                     </nav>
+                <nav>
+                    <router-link :to="{ name: 'user.personal' }">Personal</router-link>
+                </nav>
                 </nav>
 
         </div>
