@@ -35,6 +35,8 @@ const router = createRouter({
     routes
 })
 
+export default router
+
 createApp(Index)
     .use(router)
     .mount('#app')
