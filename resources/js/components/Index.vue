@@ -2,30 +2,50 @@
     <div>
         <div>
             <nav class="justify-content-sm-between">
-                    <nav>
-                        <router-link :to="{ name: 'fruit.index' }">List</router-link>
-                    </nav>
-                    <nav>
-                        <router-link :to="{ name: 'user.login' }">Login</router-link>
-                    </nav>
-                    <nav>
-                        <router-link :to="{ name: 'user.registration' }">Registration</router-link>
-                    </nav>
                 <nav>
-                    <router-link :to="{ name: 'user.personal' }">Personal</router-link>
+                    <router-link :to="{ name: 'fruit.index' }">List</router-link>
                 </nav>
+                <nav>
+                    <router-link v-if="!accessToken" :to="{ name: 'user.login' }">Login</router-link>
                 </nav>
+                <nav>
+                    <router-link v-if="!accessToken" :to="{ name: 'user.registration' }">Registration</router-link>
+                </nav>
+                <nav>
+                    <router-link v-if="accessToken" :to="{ name: 'user.personal' }">Personal</router-link>
+                </nav>
+            </nav>
 
         </div>
 
-        <router-view/>
+        <router-view :key="$route.fullPath" />
 
     </div>
 </template>
 
 <script>
 export default {
-    name: "Index"
+    name: "Index",
+
+    data() {
+        return {
+            accessToken: null,
+        }
+    },
+
+    mounted() {
+        this.getAccessToken()
+    },
+
+    updated() {
+        this.getAccessToken()
+    },
+
+    methods: {
+        getAccessToken() {
+            this.accessToken = localStorage.getItem('access_token')
+        }
+    }
 }
 </script>
 
